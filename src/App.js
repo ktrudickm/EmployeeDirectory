@@ -13,13 +13,13 @@ class App extends React.Component {
       .then((res) => {
         console.log(res);
         this.setState({
-          employees: res.data.results.map((e, i) => ({
-            firstName: e.name.first,
-            lastName: e.name.last,
-            picture: e.picture.large,
-            email: e.email,
-            phone: e.phone,
-            dob: e.dob,
+          employees: res.data.results.map((emps, i) => ({
+            firstName: emps.name.first,
+            lastName: emps.name.last,
+            picture: emps.picture.large,
+            email: emps.email,
+            phone: emps.phone,
+            dob: emps.dob,
             key: i,
           })),
         });
@@ -34,22 +34,20 @@ class App extends React.Component {
   searchEmployee = (filter) => {
     console.log('Search', filter);
     const empFilter = this.state.employees.filter((employee) => {
-      let values = Object.values(employee).join('').toLowerCase();
-      return values.indexOf(filter.toLowerCase()) !== -1;
+      let val = Object.values(employee).join('').toLowerCase();
+      return val.indexOf(filter.toLowerCase()) !== -1;
     });
     this.setState({ employees: empFilter });
   };
 
-  handleInputChange = (e) => {
+  handleInputChange = (event) => {
     this.setState({
-      [e.target.name]: e.target.value,
+      [event.target.name]: event.target.value,
     });
-    console.log('Handle ', this.state.search);
   };
 
-  handleFormSubmit = (e) => {
-    e.preventDefault();
-    console.log('Button Clicked', this.state.search, e);
+  handleFormSubmit = (event) => {
+    event.preventDefault();
     this.searchEmployee(this.state.search);
   };
 
