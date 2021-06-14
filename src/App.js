@@ -1,4 +1,3 @@
-
 import React from 'react';
 import EmployeeTable from './components/EmployeeTable';
 import Search from './components/Search';
@@ -34,18 +33,14 @@ class App extends React.Component {
 
   searchEmployee = (filter) => {
     console.log('Search', filter);
-    const filteredList = this.state.employees.filter((employee) => {
-      // merge data together, then check to see if employee exists
+    const empFilter = this.state.employees.filter((employee) => {
       let values = Object.values(employee).join('').toLowerCase();
       return values.indexOf(filter.toLowerCase()) !== -1;
     });
-    // Update the employee list with the filtered value
-    this.setState({ employees: filteredList });
+    this.setState({ employees: empFilter });
   };
 
   handleInputChange = (e) => {
-    // const name = e.target.name;
-    // const value = e.target.value;
     this.setState({
       [e.target.name]: e.target.value,
     });
