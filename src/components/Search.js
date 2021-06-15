@@ -18,7 +18,7 @@ function Search(props) {
           Search
         </button>
         <button onClick={props.refreshPage} className="btn btn-primary ml-1">
-          Reset
+          Clear Search
         </button>
       </div>
     </form>

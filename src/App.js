@@ -76,17 +76,17 @@ class App extends React.Component {
                     <th>DOB</th>
                   </tr>
                 </thead>
-                {[...this.state.employees].map((item) => (
-                  <EmployeeTable
-                    picture={item.picture}
-                    firstName={item.firstName}
-                    lastName={item.lastName}
-                    email={item.email}
-                    phone={item.phone}
-                    dob={item.dob}
-                    key={item.key}
-                  />
-                ))}
+                {this.state.employees.map((item, i) => (
+                    <EmployeeTable 
+                        key={i}
+                        firstName={item.firstName}
+                        lastName={item.lastName}
+                        email={item.email}
+                        phone={item.phone}
+                        picture={item.picture}
+                        dob={item.dob.date}
+                    />
+                  ))}
               </table>
           </div>
         </div>
