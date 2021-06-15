@@ -2,9 +2,9 @@ import React from 'react';
 
 function Search(props) {
   return (
-    <form>
-      <div className="form-group" style={{ display: 'flex' }}>
-        <label htmlFor="search"></label>
+    <div className="formStyle">
+    <form className='form'>
+      <div className="formInput" style={{ display: 'flex' }}>
         <input
           onChange={props.handleInputChange}
           value={props.value}
@@ -15,13 +15,14 @@ function Search(props) {
           id="search"
         />
         <button onClick={props.handleFormSubmit} className="btn btn-primary">
-          Search
+          Search Name
         </button>
         <button onClick={props.refreshPage} className="btn btn-primary ml-1">
           Clear Search
         </button>
       </div>
     </form>
+    </div>
   );
 }
 

@@ -5,7 +5,7 @@ function EmployeeTable(props) {
     <thead>
       <tr>
         <th>
-          <img alt={props.firstName} src={props.picture} />
+          <img alt={props.firstName + " " + props.lastName} src={props.picture} />
         </th>
         <td>{props.firstName}</td>
         <td>{props.lastName}</td>
