@@ -6,8 +6,8 @@ function Search(props) {
     <form className='form'>
       <div className="formInput" style={{ display: 'flex' }}>
         <input
-          onChange={props.handleInputChange}
-          value={props.value}
+          onChange={e=>props.handleFormSubmit(e)}
+          //value={props.value}
           name="search"
           type="text"
           className="form-control"

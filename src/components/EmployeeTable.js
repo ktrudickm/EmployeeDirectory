@@ -1,6 +1,12 @@
 import React from 'react';
 
 function EmployeeTable(props) {
+
+  date = () => {
+
+    return 
+  }
+
   return (
     <thead>
       <tr>
@@ -11,7 +17,7 @@ function EmployeeTable(props) {
         <td>{props.lastName}</td>
         <td>{props.email}</td>
         <td>{props.phone}</td>
-        <td>{props.dob}</td>
+        <td>{date(props.dob)}</td>
       </tr>
     </thead>
   );

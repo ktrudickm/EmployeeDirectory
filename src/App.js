@@ -6,7 +6,11 @@ import API from './utils/API';
 import './App.css';
 
 class App extends React.Component {
-  state = { employees: [], search: '' };
+  state = { employees: [], 
+          filteredEmployees: [],
+        search: '',
+        orderSort: 'descend'
+      };
 
   componentDidMount() {
     API.search()
@@ -22,6 +26,15 @@ class App extends React.Component {
             dob: emps.dob,
             key: i,
           })),
+          filteredEmployees: res.data.results.map((emps, i) => ({
+            firstName: emps.name.first,
+            lastName: emps.name.last,
+            picture: emps.picture.large,
+            email: emps.email,
+            phone: emps.phone,
+            dob: emps.dob,
+            key: i,
+          }))
         });
       })
       .catch((err) => console.log(err));
@@ -31,14 +44,14 @@ class App extends React.Component {
     window.location.reload(false);
   }
 
-  searchEmployee = (filter) => {
-    console.log('Search', filter);
-    const empFilter = this.state.employees.filter((employee) => {
-      let val = Object.values(employee).join('').toLowerCase();
-      return val.indexOf(filter.toLowerCase()) !== -1;
-    });
-    this.setState({ employees: empFilter });
-  };
+  // searchEmployee = (filter) => {
+  //   console.log('Search', filter);
+  //   const empFilter = this.state.employees.filter((employee) => {
+  //     let val = Object.values(employee).join('').toLowerCase();
+  //     return val.indexOf(filter.toLowerCase()) !== -1;
+  //   });
+  //   this.setState({ employees: empFilter });
+  // };
 
   handleInputChange = (event) => {
     this.setState({
@@ -46,9 +59,52 @@ class App extends React.Component {
     });
   };
 
+  handleSort = () => {
+    if(this.state.orderSort === "descend"){
+      this.setState({
+        orderSort:'ascend'
+      })
+    }else{
+      this.setState({
+        orderSort:'descend'
+      })
+    }
+console.log(this.state.orderSort)
+    const compare = (a,b) =>{
+ 
+      if(this.state.orderSort === "ascend"){
+        return a.firstName.localeCompare(b.firstName);
+
+      } else{
+        return b.firstName.localeCompare(a.firstName);
+      }
+    //  console.log('yo', a , b)
+    }
+
+    let sortUsers = this.state.filteredEmployees.sort(compare);
+    this.setState({filteredEmployees: sortUsers})
+
+  };
+
+
+ 
+
   handleFormSubmit = (event) => {
-    event.preventDefault();
-    this.searchEmployee(this.state.search);
+    // event.preventDefault();
+    // this.searchEmployee(this.state.search);
+
+    console.log('Search', event.target.value);
+
+    let filter = event.target.value;
+
+    const empFilter = this.state.employees.filter((employee) => {
+
+      let val = Object.values(employee).join('').toLowerCase();
+
+      return val.indexOf(filter.toLowerCase()) !== -1;
+    });
+    console.log(empFilter)
+    this.setState({ filteredEmployees: empFilter });
   };
 
   render() {
@@ -64,19 +120,23 @@ class App extends React.Component {
               />
           </div>
 
+
+
           <div className="row">
               <table className="table">
-                <thead>
+                <thead className="heading">
                   <tr>
                     <th>Photo</th>
-                    <th>First Name</th>
+                    <th
+                      onClick={this.handleSort}
+                    >First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>DOB</th>
+                    <th>Date of Birth</th>
                   </tr>
                 </thead>
-                {this.state.employees.map((item, i) => (
+                {this.state.filteredEmployees.map((item, i) => (
                     <EmployeeTable 
                         key={i}
                         firstName={item.firstName}
