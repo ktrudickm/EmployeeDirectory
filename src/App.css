@@ -40,3 +40,12 @@
 .heading {
   padding-bottom: 50px;
 }
+
+.sortName {
+  cursor: pointer;
+}
+
+.sortName:hover {
+  background-color: beige;
+  font-size: 15px;
+}

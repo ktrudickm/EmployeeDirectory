@@ -127,7 +127,7 @@ console.log(this.state.orderSort)
                 <thead className="heading">
                   <tr>
                     <th>Photo</th>
-                    <th
+                    <th className='sortName'
                       onClick={this.handleSort}
                     >First Name</th>
                     <th>Last Name</th>

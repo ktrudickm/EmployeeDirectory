@@ -2,10 +2,14 @@ import React from 'react';
 
 function EmployeeTable(props) {
 
-  date = () => {
-
-    return 
-  }
+  function date(date){
+    date = new Date(date);
+    let dob = [];
+    dob.push(("0" + (date.getMonth() + 1)).slice(-2));
+    dob.push(("0" + date.getDate()).slice(-2));
+    dob.push(date.getFullYear());
+    return dob.join("/");
+}
 
   return (
     <thead>
