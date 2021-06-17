@@ -7,18 +7,14 @@ function Search(props) {
       <div className="formInput" style={{ display: 'flex' }}>
         <input
           onChange={e=>props.handleFormSubmit(e)}
-          //value={props.value}
           name="search"
           type="text"
           className="form-control"
           placeholder="Employee Search"
           id="search"
         />
-        <button onClick={props.handleFormSubmit} className="btn btn-primary">
-          Search Name
-        </button>
         <button onClick={props.refreshPage} className="btn btn-primary ml-1">
-          Clear Search
+          Clear
         </button>
       </div>
     </form>

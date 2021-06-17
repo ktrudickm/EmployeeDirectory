@@ -44,15 +44,6 @@ class App extends React.Component {
     window.location.reload(false);
   }
 
-  // searchEmployee = (filter) => {
-  //   console.log('Search', filter);
-  //   const empFilter = this.state.employees.filter((employee) => {
-  //     let val = Object.values(employee).join('').toLowerCase();
-  //     return val.indexOf(filter.toLowerCase()) !== -1;
-  //   });
-  //   this.setState({ employees: empFilter });
-  // };
-
   handleInputChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
@@ -69,7 +60,6 @@ class App extends React.Component {
         orderSort:'descend'
       })
     }
-console.log(this.state.orderSort)
     const compare = (a,b) =>{
  
       if(this.state.orderSort === "ascend"){
@@ -78,7 +68,6 @@ console.log(this.state.orderSort)
       } else{
         return b.firstName.localeCompare(a.firstName);
       }
-    //  console.log('yo', a , b)
     }
 
     let sortUsers = this.state.filteredEmployees.sort(compare);
@@ -90,11 +79,6 @@ console.log(this.state.orderSort)
  
 
   handleFormSubmit = (event) => {
-    // event.preventDefault();
-    // this.searchEmployee(this.state.search);
-
-    console.log('Search', event.target.value);
-
     let filter = event.target.value;
 
     const empFilter = this.state.employees.filter((employee) => {
@@ -103,7 +87,6 @@ console.log(this.state.orderSort)
 
       return val.indexOf(filter.toLowerCase()) !== -1;
     });
-    console.log(empFilter)
     this.setState({ filteredEmployees: empFilter });
   };
 

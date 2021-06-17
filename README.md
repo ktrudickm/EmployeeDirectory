@@ -31,7 +31,7 @@ npm install
 
 * [Random User API](https://randomuser.me/)
 
-*[Create React App docs for deployment.](https://create-react-app.dev/docs/deployment/#github-pages)
+* [Create React App docs for deployment.](https://create-react-app.dev/docs/deployment/#github-pages)
 
 ## Links
 
