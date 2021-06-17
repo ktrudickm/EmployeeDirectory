@@ -2,27 +2,39 @@
 
 ## Overview
 
-This app is an employee directory built with React.
+This app is an employee directory built with React. It utilizes a random user generator API from the [Random User API](https://randomuser.me/).
 
-## User Story
+When using this app, the user is able to
 
-* As a user, I want to be able to view my entire employee directory at once so that I have quick access to their information.
+  * Sort the table in ascending/descending order by the first name of the employees in the directory.
 
-## Business Context
+  * Filter the users by the employee's name.
 
-An employee or manager would benefit greatly from being able to view non-sensitive data about other employees. It would be particularly helpful to be able to filter employees by name.
+This project is deployed to GitHub Pages.
 
-## Acceptance Criteria
+## Licenses
 
-Given a table of random users generated from the [Random User API](https://randomuser.me/), when the user loads the page, a table of employees should render. 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-The user should be able to:
+This Employee Directory app is licensed under the MIT license.
 
-  * Sort the table by at least one category
+## Usage/Installation
 
-  * Filter the users by at least one property.
+Run the following code to install the app's required dependencies:
+```
+npm install
+```
 
+## Credits
 
-* Deploy this site to GitHub Pages using the [Create React App docs for deployment.](https://create-react-app.dev/docs/deployment/#github-pages)
+* [ReactJS]()
 
-* **Important**: Be sure to push your codebase to GitHub and **NOT** your built and deployed code. Ensure this happens by following the above instructions and using the `gh-pages` branch to host the deployed application's code.
+* [Random User API](https://randomuser.me/)
+
+*[Create React App docs for deployment.](https://create-react-app.dev/docs/deployment/#github-pages)
+
+## Links
+
+* [GitHub Repository](https://github.com/ktrudickm/EmployeeDirectory)
+
+* [GitHub Pages App]()
