@@ -37,4 +37,4 @@ npm install
 
 * [GitHub Repository](https://github.com/ktrudickm/EmployeeDirectory)
 
-* [GitHub Pages App]()
+* [GitHub Pages Deployed App](https://ktrudickm.github.io/employee-directory/)
